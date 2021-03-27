@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "1a2e36f7-7311-449e-b7cc-9d1c42d39fe0",
+		"name": "Authorization-Resource-OAth2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OAuth2",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "javainuse-secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "javainuse-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "javainuse-user",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "javainuse-pass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Resource",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "cf564ea0-1792-45a2-805e-173b7541cf46",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/test",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Resource - Pega Usuario Autenticado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "41027824-3a20-431b-88eb-19acbfc0ab365",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/whoami",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"whoami"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ValidateUser - Chamada direta AuthorizationServer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "e296d454-1a42-4a02-9a1e-073d9dbdd873",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/validateUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"validateUser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
